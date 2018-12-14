@@ -53,6 +53,10 @@
     move $a0, $t4 
     j ConvertString 
     
+    li $v0, 1 
+    move $s0, $ra 
+    syscall 
+    
     exit:
     #tell the system the end of main 
     li $v0, 10
