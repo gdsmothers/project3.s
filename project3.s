@@ -54,6 +54,9 @@
     j ConvertString 
     
     ConvertString:
+    lw $ra 0($sp)
+    lw $s0 4($sp)
+    
     #base case
     li $v0, 1
     beq $a0, 0, InvalidInput  
