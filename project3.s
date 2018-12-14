@@ -53,6 +53,11 @@
     move $a0, $t4 
     j ConvertString 
     
+    exit:
+    #tell the system the end of main 
+    li $v0, 10
+    syscall  
+    
     ConvertString:
     lw $ra 0($sp)
     lw $s0 4($sp)
@@ -163,11 +168,6 @@
     li $v0, 1
     move $a0, $t7
     syscall
-
-    exit:
-    #tell the system the end of main 
-    li $v0, 10
-    syscall 
     
     EmptyInput:
     #checks to see if the input is empty
