@@ -9,7 +9,7 @@
     #Allocating space in the stack
     addi $sp, $sp, -8
     sw $ra, 0($sp)
-    sw $sp, 4($sp)
+    sw $s0, 4($sp)
      
     #tells program to expect userinput
     li $v0, 8 
@@ -70,6 +70,9 @@
     slti $t6, $t5, 115 # if character less than s then valid  
     bne $t6, $zero, FindingChar
     bgt $t5, 114, InvalidInput # if character greater than r then invalid  
+    
+    addi $sp, $sp, 8
+    jr $ra 
     
     FindingChar:
     #checks character individually for string
