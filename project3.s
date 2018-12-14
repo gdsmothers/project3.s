@@ -51,7 +51,7 @@
     slti $t3, $t0, 5 #if string is of appropriate length
     beqz $t3, LongInput
     move $a0, $t4 
-    j ConvertString 
+    jal ConvertString 
     
     li $v0, 1 
     move $s0, $ra 
@@ -68,7 +68,7 @@
     
     #base case
     li $v0, 1
-    beq $a0, 0, InvalidInput  
+    beq $a0, 0, Return  
     
     move $s0, $a0
     addi $a0, $a0, 1
