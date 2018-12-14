@@ -89,7 +89,7 @@
     bgt $t5, 114, InvalidInput # if character greater than r then invalid  
     
     addi $sp, $sp, 8
-    jr $ra 
+    j Return
     
     FindingChar:
     #checks character individually for string
@@ -188,6 +188,10 @@
     la $a0, msglong
     li $v0, 4
     syscall 
-    j exit 
+    j exit  
+    
+    Return:
+    lw $ra, 0($sp)
+    lw $s0, 4($sp)
     
 
