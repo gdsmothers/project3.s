@@ -7,8 +7,9 @@
 .text 
     main: 
     #Allocating space in the stack
-    addi $sp, $sp, -4 
+    addi $sp, $sp, -8
     sw $ra, 0($sp)
+    sw $sp, 4($sp)
      
     #tells program to expect userinput
     li $v0, 8 
