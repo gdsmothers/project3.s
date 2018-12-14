@@ -34,7 +34,7 @@
     addi $t0, $t0, 0 
     addi $t1, $t1, 10     
     add $t4, $t4, $a0 #add can add registers and with addi you have to have a  immediate number 
-    sw $s0, 4($sp)
+    sw $t4, 4($sp)
     
     FindLength:
     #Finds the length of the string
@@ -54,6 +54,10 @@
     j ConvertString 
     
     ConvertString:
+    #base case
+    li $v0, 1
+    beq $a0, 0, InvalidInput 
+    
     #makes sure that character is in range
     lb $t5, 0($a0)  
     beqz $t5, Conversion 
