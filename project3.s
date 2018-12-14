@@ -56,7 +56,11 @@
     ConvertString:
     #base case
     li $v0, 1
-    beq $a0, 0, InvalidInput 
+    beq $a0, 0, InvalidInput  
+    
+    move $s0, $a0
+    addi $a0, $a0, 1
+    jal ConvertString
     
     #makes sure that character is in range
     lb $t5, 0($a0)  
