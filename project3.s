@@ -159,10 +159,12 @@
     addi $s5, $s5, -48
     j MoveOn
     
-    FindingChar:
-    #checks character individually for string
-    addi $a0, $a0, 1
-    j ConvertString
+    MoveOn:
+    #Byte will be added by power of base 
+    mul $s5, $s5, $s7
+    div $s7, $s7, 28
+    
+    addi $sp, $sp, -16
 
     Conversion:
     move $a0, $t4 
