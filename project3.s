@@ -150,8 +150,15 @@
     j MoveOn
     
     Regular:
+    #Ascii aswell
     addi $s5, $s5, -82
+    j MoveOn 
+    
+    Ascii:
+    #Ascii for numbers
+    addi $s5, $s5, -48
     j MoveOn
+    
     FindingChar:
     #checks character individually for string
     addi $a0, $a0, 1
