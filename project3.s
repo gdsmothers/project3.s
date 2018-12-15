@@ -43,10 +43,10 @@
     beq $s5, 10, EmptyInput 
     beq $s5, $0, EmptyInput
     
-    CharacterSpaces:
-    #deletes spaces if there are any
-    addi $a0, $a0, 1
-    j LeftSpaces
+    One: #looks at first parameter to make sure its valid
+    addi $t3, $t3, 1
+    addi $t2, $t2, 1
+
     
     Length:
     addi $t0, $t0, 0 
