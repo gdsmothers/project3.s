@@ -64,7 +64,12 @@
     StartOver:
     #Makes the pointer go back to the beginning
     sub $t3, $t3, $t2
-    la $t2, 0
+    la $t2, 0 
+    
+    Beginning:
+    lb $s5, 0($t3)
+    addi $t2, $t2, 1
+    
     
     CheckLength: #length loop 
     #Checks if the string is too long
