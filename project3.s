@@ -34,13 +34,11 @@
     addi $t5, $0, 0
     addi $t6, $0, 0
 
-
-    
-   
     LeftSpaces:
-    #deletes the left spaces if any in user input 
-    li $t8, 32 #ascii code for space
-    lb $t9, 0($a0) #stores 0 into $t9
+    #deletes the left spaces if any in user input
+    lb $s5, 0($t7) #character pointer now at t7
+    addi $t3, $t3, 1
+    addi $t2, $t2, 1
     beq $t8, $t9, CharacterSpaces
     move $t9, $a0 
     j Length
