@@ -15,7 +15,11 @@
     li $v0, 8 
     la $a0, str
     li $a1, 1000
-    syscall 
+    syscall  
+    
+    addi $s5, $0, 0
+    addi $t2, $0, 0
+    addi $s1, $0, 0
    
     LeftSpaces:
     #deletes the left spaces if any in user input 
@@ -168,6 +172,17 @@
     move $a0, $t7
     syscall
     
+    Return:
+    li $v0, 0
+    lw $ra, 0($sp)
+    lw $s0, 4($sp) 
+    addi $sp, $sp 8
+    
+    addi $sp, $sp, -4
+    sw $v0, 0($sp) 
+    jr $ra
+    
+    
     EmptyInput:
     #checks to see if the input is empty
     la $a0, msgempty #loading message 
@@ -194,14 +209,5 @@
     li $v0, 10
     syscall  
     
-    Return:
-    li $v0, 0
-    lw $ra, 0($sp)
-    lw $s0, 4($sp) 
-    addi $sp, $sp 8
-    
-    addi $sp, $sp, -4
-    sw $v0, 0($sp) 
-    jr $ra
-    
+
 
