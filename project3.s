@@ -47,15 +47,17 @@
     addi $t3, $t3, 1
     addi $t2, $t2, 1
     addi $t6, $t6, 1
-    beq $s5, 10, StartOver
+    beq $s5, 10, StartOver #Returns to start (pointer) if space or another line is found 
     beq $s5, 0, StartOver
+    bne $s5, 32 One #ascii for space is 32 and if space not found loops again 
+    
+    Two: #looks at second parameter for spaces
+    lb $s5, 0(t3)
+    addi $t3, $t3, 1
+    addi $t2, $t2, 1
+    
 
     
-    Length:
-    addi $t0, $t0, 0 
-    addi $t1, $t1, 10     
-    add $t4, $t4, $a0 #add can add registers and with addi you have to have a  immediate number 
-    sw $t4, 4($sp)
     
     FindLength:
     #Finds the length of the string
