@@ -160,7 +160,7 @@
     div $s7, $s7, 28
     #space for character, address, power, and length
     addi $sp, $sp, -16
-    sw $s5, 0($sp) t
+    sw $s5, 0($sp) 
     sw $t3, 4($sp) 
     sw $s1, 8($sp) 
     sw $s6, 12($sp) 
@@ -177,7 +177,16 @@
     
     addi $sp, $sp, -4
     sw $v0, 0($sp)
-    jr $ra	
+    jr $ra
+    
+    Return: 
+    li $v0, 0	
+    lw $ra, 0($sp)	
+    lw $s5, 4($sp)	
+    addi $sp, $sp, 8	
+    addi $sp, $sp, -4
+    sw $v0, 0($sp)
+    jr $ra 
 
     EmptyInput:
     #checks to see if the input is empty
