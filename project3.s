@@ -24,6 +24,8 @@
     Empty:
     la $t3, str
     lb $s5, 0($t3)
+    beq $s5, 10, EmptyInput
+    beq $s5, 0, EmptyInput
    
     LeftSpaces:
     #deletes the left spaces if any in user input 
