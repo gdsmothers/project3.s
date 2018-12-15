@@ -121,6 +121,11 @@
     lw $t3 4($sp)
     lw $s1, 8($sp)
     lw $s6, 12($sp)
+    addi $sp, $sp, 16
+
+    addi $sp, $sp, -8
+    sw $ra, 0($sp)
+    sw $s5, 4($sp)
 
 
     #base case
