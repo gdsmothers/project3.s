@@ -25,7 +25,12 @@
     la $t3, str
     lb $s5, 0($t3)
     beq $s5, 10, EmptyInput
-    beq $s5, 0, EmptyInput
+    beq $s5, 0, EmptyInput 
+    
+    #Making sure program knows base number 
+    addi $t4, $0, 0
+    addi $s7, $0, 1
+    
    
     LeftSpaces:
     #deletes the left spaces if any in user input 
