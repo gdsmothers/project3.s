@@ -39,7 +39,7 @@
     lb $s5, 0($t7) #character pointer now at t7
     addi $t3, $t3, 1
     addi $t2, $t2, 1
-    beq $s5, 32, LeftSpaces
+    beq $s5, 32, LeftSpaces #loop if there is space detected
     beq $s5, 10, EmptyInput 
     beq $s5, $0, EmptyInput
     
@@ -64,8 +64,9 @@
     j FindLength 
     
     CheckLength:
-    #Checks if the string is empty or too long
-    beqz $t0, EmptyInput 
+    #Checks if the string is too long
+    lb $s5, ($t3)
+    addi $t3, $t3, 1 
     slti $t3, $t0, 5 #if string is of appropriate length
     beqz $t3, LongInput
     move $a0, $t4 
