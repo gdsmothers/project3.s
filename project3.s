@@ -11,12 +11,13 @@
     la $a0, str
     li $a1, 1000
     syscall  
-    
+    #intializing registers for input 
     addi $s5, $0, 0
     addi $t2, $0, 0
     addi $s1, $0, 0 
     
     Empty:
+    #checks to see if input is empty 
     la $t3, str
     lb $s5, 0($t3)
     beq $s5, 10, EmptyInput
@@ -113,13 +114,14 @@
     
     .globl ConvertString #can be accessed from anywhere 
     ConvertString:
-    lw $s5 0($sp)
-    lw $t3 4($sp)
-    lw $s1, 8($sp)
-    lw $s6, 12($sp)
+    #loading information into registers
+    lw $s5 0($sp) #character
+    lw $t3 4($sp) #address
+    lw $s1, 8($sp) #power
+    lw $s6, 12($sp) #length
     addi $sp, $sp, 16
 
-    addi $sp, $sp, -8
+    addi $sp, $sp, -8 #allocating more memory
     sw $ra, 0($sp)
     sw $s5, 4($sp)
      
@@ -127,18 +129,25 @@
     beq $s1, $s6, Return
     
     lb $s5, 0($t3)
-    
+    #increment pointer and counter
     addi $t3, $t3, 1
     addi $s1, $s1, 1
     
     #makes sure that character is in range 
-    blt $s5, 48, InvalidInput
-    blt $s5, 58, Ascii
-    blt $s5, 65, InvalidInput
-    blt $s5, 82, Letter
-    blt $s5, 97, InvalidInput  # if character is less than 9 then valid 
+    #cannot be less than 0
+    blt $s5, 48, InvalidInput 
+    #chracter number between 0-9 
+    blt $s5, 58, Ascii 
+    #cannot be less than A
+    blt $s5, 65, InvalidInput  
+    #character capital between A-S
+    blt $s5, 83, Letter
+    #cannon be between S and '
+    blt $s5, 97, InvalidInput
+    #character between a-s  
     blt $s5, 115, Regular
-    blt $s5, 128, InvalidInput  # if character less than A then invalid 
+    #cannot be between t-DEL
+    blt $s5, 128, InvalidInput  
     
     Letter:
     #trying to get Ascii value for characters
@@ -147,7 +156,7 @@
     
     Regular:
     #Ascii aswell
-    addi $s5, $s5, -82
+    addi $s5, $s5, -83
     j MoveOn 
     
     Ascii:
@@ -170,7 +179,7 @@
     
     lw $v0, 0($sp)
     addi $sp, $sp, 4 
-    add $v0, $s5, $v0
+    add $v0, $s5, $v0 #adding the values that were converted
     
     lw $ra, 0($sp)	
     lw $s5, 4($sp)	
@@ -178,8 +187,10 @@
     
     addi $sp, $sp, -4
     sw $v0, 0($sp)
+    #moves to return address
     jr $ra
     
+    #Signaling the end of the recursion function
     Return: 
     li $v0, 0	
     lw $ra, 0($sp)	
@@ -215,6 +226,7 @@
     li $v0, 10
     syscall   
     
+    #Error based off of length or base 
     Error:
     bge $t6, 4, LongInput
     j InvalidInput
