@@ -126,15 +126,14 @@
     addi $sp, $sp, -8
     sw $ra, 0($sp)
     sw $s5, 4($sp)
-
-
+     
     #base case
-    li $v0, 1
-    beq $a0, 0, Return  
+    beq $s1, $s6, Return
     
-    move $s0, $a0
-    addi $a0, $a0, 1
-    jal ConvertString
+    lb $s5, 0($t3)
+    
+    addi $t3, $t3, 1
+    addi $s1, $s1, 1
     
     #makes sure that character is in range
     lb $t5, 0($a0)  
