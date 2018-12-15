@@ -30,6 +30,11 @@
     #Making sure program knows base number 
     addi $t4, $0, 0
     addi $s7, $0, 1
+    addi $s2, $0, 28 				
+    addi $t5, $0, 0
+    addi $t6, $0, 0
+
+
     
    
     LeftSpaces:
