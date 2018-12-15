@@ -83,8 +83,8 @@
     sub $t3, $t3, $t2
     sub $t2, $t2, $s7
     lb $s5, 0($t3) #loading first byte
-    sub $4, $t2, $s7  
-    move $s6, $t4 #save the length of the string  
+    sub $s4, $t2, $s7  
+    move $s6, $t2 #save the length of the string  
     
     Power:
     #Finding Power to move counter to 0 
@@ -138,7 +138,7 @@
     blt $s5, 82, Letter
     blt $s5, 97, InvalidInput  # if character is less than 9 then valid 
     blt $s5, 115, Regular
-    blt $s5, 120, InvalidInput  # if character less than A then invalid 
+    blt $s5, 128, InvalidInput  # if character less than A then invalid 
     
     Letter:
     #trying to get Ascii value for characters
