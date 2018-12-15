@@ -6,11 +6,6 @@
     
 .text 
     main: 
-    #Allocating space in the stack
-    addi $sp, $sp, -8
-    sw $ra, 0($sp)
-    sw $s0, 4($sp)
-     
     #tells program to expect userinput
     li $v0, 8 
     la $a0, str
