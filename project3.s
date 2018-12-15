@@ -67,8 +67,8 @@
     #Checks if the string is too long
     lb $s5, ($t3)
     addi $t3, $t3, 1 
-    slti $t3, $t0, 5 #if string is of appropriate length
-    beqz $t3, LongInput
+    addi $t2, $t2, 1
+    beq $t2, 5, LongInput #if string is of appropriate length
     move $a0, $t4 
     jal ConvertString 
     
