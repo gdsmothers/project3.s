@@ -208,7 +208,11 @@
     exit:
     #tell the system the end of main 
     li $v0, 10
-    syscall  
+    syscall   
     
+    Error:
+    bge $t6, 4, messageTooLongError
+    j InvalidInput
+    jr $ra
 
 
