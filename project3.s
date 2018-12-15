@@ -139,13 +139,13 @@
     blt $s5, 48, InvalidInput
     blt $s5, 58, Ascii
     blt $s5, 65, InvalidInput
-    blt $s5, $zero, InvalidInput
-    blt $s5, $t5, 58  # if character is less than 9 then valid 
-    blt $s5, $zero, FindingChar
-    blt $s5, $t5, 65  # if character less than A then invalid 
+    blt $s5, 82, Letter
+    blt $s5, 97, InvalidInput  # if character is less than 9 then valid 
+    blt $s5, 115, Regular
+    blt $s5, 120, InvalidInput  # if character less than A then invalid 
     
-    addi $sp, $sp, 8
-    j Return
+    Letter:
+    
     
     FindingChar:
     #checks character individually for string
