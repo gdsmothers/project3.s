@@ -195,10 +195,12 @@
     syscall  
     
     Return:
+    li $v0, 0
     lw $ra, 0($sp)
     lw $s0, 4($sp) 
+    addi $sp, $sp 8
     
-    addi $sp, $sp, -4 
+    addi $sp, $sp, -4
     sw $v0, 0($sp) 
     jr $ra
     
