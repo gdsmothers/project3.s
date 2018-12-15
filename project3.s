@@ -19,7 +19,11 @@
     
     addi $s5, $0, 0
     addi $t2, $0, 0
-    addi $s1, $0, 0
+    addi $s1, $0, 0 
+    
+    Empty:
+    la $t3, str
+    lb $s5, 0($t3)
    
     LeftSpaces:
     #deletes the left spaces if any in user input 
