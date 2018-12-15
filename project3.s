@@ -94,7 +94,14 @@
     #Finding Power to move counter to 0 
     beq $s4, 0, Recurse
     mult $s7, $s2
-    mflo $s7
+    mflo $s7 #trying to get counter to 0
+    sub $s4, $s4, 1 #decrement
+    j Power
+    
+    Recurse:
+    addi $sp, $sp, -16
+    sw $s5, 0($sp)
+    sw $t3, 4($sp)
     
     ConvertString:
     lw $ra 0($sp)
