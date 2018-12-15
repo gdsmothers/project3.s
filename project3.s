@@ -163,8 +163,11 @@
     #Byte will be added by power of base 
     mul $s5, $s5, $s7
     div $s7, $s7, 28
-    
+    #space for character, address, power, and length
     addi $sp, $sp, -16
+    sw $s5, 0($sp) t
+    sw $t3, 4($sp) 
+
 
     Conversion:
     move $a0, $t4 
