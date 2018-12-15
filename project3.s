@@ -70,7 +70,7 @@
     lb $s5, 0($t3)
     addi $t3, $t3, 1
     beq $s5, 32, Beginning #If character found iteration stops
-    addi $t3, $t3, -1
+    addi $t3, $t3, -1 #Re-aligned the pointer
     
     CheckLength: #length loop 
     #Checks if the string is too long
@@ -83,9 +83,10 @@
     beq $t2, 5, LongInput #if string is of appropriate length 
     j CheckLength
     
-    li $v0, 1 
-    move $s0, $ra 
-    syscall 
+    Reset:
+    sub $t3, $t3, $t2
+    sub $t2, $t2, $s7
+    
     
     ConvertString:
     lw $ra 0($sp)
