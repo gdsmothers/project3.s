@@ -114,10 +114,15 @@
     #Ends Program 
     li $v0, 10
     syscall
-    ConvertString:
-    lw $ra 0($sp)
-    lw $s0 4($sp)
     
+    .globl ConvertString #can be accessed from anywhere 
+    ConvertString:
+    lw $s5 0($sp)
+    lw $t3 4($sp)
+    lw $s1, 8($sp)
+    lw $s6, 12($sp)
+
+
     #base case
     li $v0, 1
     beq $a0, 0, Return  
