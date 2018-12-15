@@ -46,6 +46,9 @@
     One: #looks at first parameter to make sure its valid
     addi $t3, $t3, 1
     addi $t2, $t2, 1
+    addi $t6, $t6, 1
+    beq $s5, 10, StartOver
+    beq $s5, 0, StartOver
 
     
     Length:
