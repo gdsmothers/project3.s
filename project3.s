@@ -135,23 +135,14 @@
     addi $t3, $t3, 1
     addi $s1, $s1, 1
     
-    #makes sure that character is in range
-    lb $t5, 0($a0)  
-    beqz $t5, Conversion 
-    beq $t5, $t1, Conversion
-    slti $t6, $t5, 48  #if the character is less than 0 than invalid 
-    bne $t6, $zero, InvalidInput
-    slti $t6, $t5, 58  # if character is less than 9 then valid 
-    bne $t6, $zero, FindingChar
-    slti $t6, $t5, 65  # if character less than A then invalid 
-    bne $t6, $zero, InvalidInput
-    slti $t6, $t5, 82  # if character less than R then valid 
-    bne $t6, $zero, FindingChar
-    slti $t6, $t5, 97  # if character less than a then invalid 
-    bne $t6, $zero, InvalidInput
-    slti $t6, $t5, 115 # if character less than s then valid  
-    bne $t6, $zero, FindingChar
-    bgt $t5, 114, InvalidInput # if character greater than r then invalid  
+    #makes sure that character is in range 
+    blt $s5, 48, InvalidInput
+    blt $s5, 58, Ascii
+    blt $s5, 65, InvalidInput
+    blt $s5, $zero, InvalidInput
+    blt $s5, $t5, 58  # if character is less than 9 then valid 
+    blt $s5, $zero, FindingChar
+    blt $s5, $t5, 65  # if character less than A then invalid 
     
     addi $sp, $sp, 8
     j Return
