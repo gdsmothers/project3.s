@@ -39,6 +39,7 @@
     beq $s5, $0, EmptyInput
     
     One: #looks at first parameter to make sure its valid
+    lb $s5, 0($t3)
     addi $t3, $t3, 1
     addi $t2, $t2, 1
     addi $t6, $t6, 1
