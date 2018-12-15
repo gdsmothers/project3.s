@@ -106,6 +106,14 @@
     sw $s6, 12($sp)
     jal ConvertString
     
+    lw $a0, 0($sp)
+    addi $sp, $sp, 4
+    #Prints
+    li $v0, 1 
+    syscall 
+    #Ends Program 
+    li $v0, 10
+    syscall
     ConvertString:
     lw $ra 0($sp)
     lw $s0 4($sp)
