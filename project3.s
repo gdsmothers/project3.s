@@ -149,6 +149,9 @@
     addi $s5, $s5, -55 
     j MoveOn
     
+    Regular:
+    addi $s5, $s5, -82
+    j MoveOn
     FindingChar:
     #checks character individually for string
     addi $a0, $a0, 1
