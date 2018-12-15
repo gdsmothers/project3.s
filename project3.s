@@ -101,7 +101,10 @@
     Recurse:
     addi $sp, $sp, -16
     sw $s5, 0($sp)
-    sw $t3, 4($sp)
+    sw $t3, 4($sp) #address of the string
+    sw $s1, 8($sp)
+    sw $s6, 12($sp)
+    jal ConvertString
     
     ConvertString:
     lw $ra 0($sp)
