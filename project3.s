@@ -175,6 +175,12 @@
     lw $v0, 0($sp)
     addi $sp, $sp, 4 
     add $v0, $s5, $v0
+    
+    lw $ra, 0($sp)	
+    lw $s5, 4($sp)	
+    addi $sp, $sp, 8
+
+
 
 
 
