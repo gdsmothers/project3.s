@@ -39,9 +39,9 @@
     lb $s5, 0($t7) #character pointer now at t7
     addi $t3, $t3, 1
     addi $t2, $t2, 1
-    beq $t8, $t9, CharacterSpaces
-    move $t9, $a0 
-    j Length
+    beq $s5, 32, LeftSpaces
+    beq $s5, 10, EmptyInput 
+    beq $s5, $0, EmptyInput
     
     CharacterSpaces:
     #deletes spaces if there are any
