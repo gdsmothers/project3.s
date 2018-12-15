@@ -47,7 +47,7 @@
     bne $s5, 32 One #ascii for space is 32 and if space not found loops again 
     
     Two: #looks at first parameter for spaces
-    lb $s5, 0(t3)
+    lb $s5, 0($t3)
     addi $t3, $t3, 1
     addi $t2, $t2, 1
     addi $t6, $t6, 1
