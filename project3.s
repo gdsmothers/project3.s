@@ -86,7 +86,15 @@
     Reset:
     sub $t3, $t3, $t2
     sub $t2, $t2, $s7
+    lb $s5, 0($t3) #loading first byte
+    sub $4, $t2, $s7  
+    move $s6, $t4 #save the length of the string  
     
+    Power:
+    #Finding Power to move counter to 0 
+    beq $s4, 0, Recurse
+    mult $s7, $s2
+    mflo $s7
     
     ConvertString:
     lw $ra 0($sp)
