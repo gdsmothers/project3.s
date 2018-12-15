@@ -178,13 +178,11 @@
     
     lw $ra, 0($sp)	
     lw $s5, 4($sp)	
-    addi $sp, $sp, 8
-
-
-
-
-
-
+    addi $sp, $sp, 8 
+    
+    addi $sp, $sp, -4
+    sw $v0, 0($sp)
+    jr $ra	
 
     Conversion:
     move $a0, $t4 
