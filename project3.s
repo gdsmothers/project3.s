@@ -31,7 +31,7 @@
 
     LeftSpaces:
     #deletes the left spaces if any in user input
-    lb $s5, 0($t7) #character pointer now at t7
+    lb $s5, 0($t3) #character pointer now at t2
     addi $t3, $t3, 1
     addi $t2, $t2, 1
     beq $s5, 32, LeftSpaces #loop if there is space detected
@@ -215,7 +215,7 @@
     syscall   
     
     Error:
-    bge $t6, 4, messageTooLongError
+    bge $t6, 4, LongInput
     j InvalidInput
     jr $ra
 
