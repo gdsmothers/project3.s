@@ -57,11 +57,6 @@
     move $s0, $ra 
     syscall 
     
-    exit:
-    #tell the system the end of main 
-    li $v0, 10
-    syscall  
-    
     ConvertString:
     lw $ra 0($sp)
     lw $s0 4($sp)
@@ -193,6 +188,11 @@
     li $v0, 4
     syscall 
     j exit  
+    
+    exit:
+    #tell the system the end of main 
+    li $v0, 10
+    syscall  
     
     Return:
     lw $ra, 0($sp)
