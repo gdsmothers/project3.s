@@ -68,8 +68,9 @@
     
     Beginning:
     lb $s5, 0($t3)
-    addi $t2, $t2, 1
-    
+    addi $t3, $t3, 1
+    beq $s5, 32, Beginning #If character found iteration stops
+    addi $t3, $t3, -1
     
     CheckLength: #length loop 
     #Checks if the string is too long
