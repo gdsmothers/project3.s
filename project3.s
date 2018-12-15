@@ -169,6 +169,14 @@
     sw $t3, 4($sp) 
     sw $s1, 8($sp) 
     sw $s6, 12($sp) 
+    
+    jal ConvertString #loop for recursion
+    
+    lw $v0, 0($sp)
+    addi $sp, $sp, 4 
+    add $v0, $s5, $v0
+
+
 
 
 
