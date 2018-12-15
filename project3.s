@@ -145,7 +145,9 @@
     blt $s5, 120, InvalidInput  # if character less than A then invalid 
     
     Letter:
-    
+    #trying to get Ascii value for characters
+    addi $s5, $s5, -55 
+    j MoveOn
     
     FindingChar:
     #checks character individually for string
