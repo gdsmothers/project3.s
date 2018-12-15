@@ -68,6 +68,9 @@
     lb $s5, ($t3)
     addi $t3, $t3, 1 
     addi $t2, $t2, 1
+    beq $s5, 10, Reset	
+    beq $s5, 0, Reset
+    beq $s5, 32, Reset
     beq $t2, 5, LongInput #if string is of appropriate length
     move $a0, $t4 
     jal ConvertString 
