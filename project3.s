@@ -167,6 +167,9 @@
     addi $sp, $sp, -16
     sw $s5, 0($sp) t
     sw $t3, 4($sp) 
+    sw $s1, 8($sp) 
+    sw $s6, 12($sp) 
+
 
 
     Conversion:
